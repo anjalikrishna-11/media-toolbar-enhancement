@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RateMovieButton from './RateMovieButton';
+import UploadButton from './UploadButton'; 
 
 const Toolbar = ({ movies }) => {
   const [selectedMovie, setSelectedMovie] = useState(movies[0]);
@@ -12,6 +13,11 @@ const Toolbar = ({ movies }) => {
     console.log(`Rated ${selectedMovie} ${rating} stars`);
   };
 
+  const handleUpload = () => {
+    alert('Uploading image...'); // Placeholder for actual upload logic
+    // Implement actual upload logic here
+  };
+
   return (
     <div className="toolbar">
       <select onChange={handleMovieChange} value={selectedMovie}>
@@ -22,6 +28,7 @@ const Toolbar = ({ movies }) => {
         ))}
       </select>
       <RateMovieButton movie={selectedMovie} onRate={handleRate} />
+      <UploadButton onUpload={handleUpload} />
     </div>
   );
 };
